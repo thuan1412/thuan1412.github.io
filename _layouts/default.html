@@ -2,6 +2,16 @@
 <html lang="{{ page.lang | default: "en" }}" class="html" data-theme="{{ site.theme_config.appearance | default: "auto" }}">
         {%- include head.html -%}
   <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MF3CCKSEE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8MF3CCKSEE');
+      gtag('event', 'sign_up', { 'method': 'email' });
+    </script>
+
     <main class="page-content" aria-label="Content">
       <div class="w">
         {{ content }}
