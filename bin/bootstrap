@@ -8,8 +8,17 @@ if ! command -v ruby &> /dev/null; then
   exit 1
 fi
 
-RUBY_VERSION=$(ruby -e 'puts RUBY_VERSION')
-echo "==> Using Ruby $RUBY_VERSION"
+RUBY_VER=$(ruby -e 'puts RUBY_VERSION')
+echo "==> Using Ruby $RUBY_VER"
+
+# Ensure a recent bundler is available
+BUNDLER_VER=$(bundle --version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+' | head -1)
+BUNDLER_MAJOR=${BUNDLER_VER%%.*}
+BUNDLER_MINOR=${BUNDLER_VER##*.}
+if [ "$BUNDLER_MAJOR" -lt 2 ] || { [ "$BUNDLER_MAJOR" -eq 2 ] && [ "$BUNDLER_MINOR" -lt 4 ]; }; then
+  echo "==> Bundler $BUNDLER_VER is outdated, installing a newer version..."
+  gem install bundler
+fi
 
 echo "==> Running \`bundle install\`"
 bundle install

@@ -7,7 +7,6 @@
 - Light mode syntax highlighting with proper contrast
 - Tag archive page with clickable tags in posts
 - 404 page with themed layout
-- Skip-to-content link for keyboard and screen reader users
 - `prefers-reduced-motion` support for theme transitions
 - `aria-label` and `aria-pressed` on theme toggle button
 - `robots.txt` with sitemap reference

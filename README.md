@@ -18,7 +18,12 @@
 * [GitHub Markdown Alerts](#github-markdown-alerts) (NOTE, TIP, IMPORTANT, WARNING, CAUTION)
 * Tag archive page with clickable tags
 * Light and dark mode syntax highlighting
-* Accessible - skip-to-content link, ARIA labels, keyboard friendly
+* Accessible - ARIA labels, keyboard friendly
+* Reading progress bar (opt-in)
+* Back-to-top button (opt-in)
+* Previous/next post navigation (opt-in)
+* Table of contents via `toc: true` front matter (opt-in)
+* Code block copy button (opt-in)
 * Easy to extend
 * Fully compatible with [GitHub Pages](https://pages.github.com/) (see [GitHub Pages installation](#github-pages-installation))
 * Auto-generated share images for social media (using [Soopr](https://www.soopr.co))
@@ -56,7 +61,7 @@ For further customization (e.g. layout, CSS) see the [official Jekyll's document
 
 ### Customize the menu
 
-In order to add/edit/delete entries in the home page, you can copy the `home.yml` file inside `_data` folder. Through that file you can define the structure of the menu and add data for navbar, footer, portfolio or simply remove all of that and use simple blog layout. Take a look at the default configuration to get an idea of how it works and read on for a more comprehensive explaination.
+In order to add/edit/delete entries in the home page, you can copy the `home.yml` file inside `_data` folder. Through that file you can define the structure of the menu and add data for navbar, footer, portfolio or simply remove all of that and use simple blog layout. Take a look at the default configuration to get an idea of how it works and read on for a more comprehensive explanation.
 
 The `home.yml` file accepts the following fields:
 
@@ -176,6 +181,6 @@ If you like Moonwalk, do check out my other projects
 *   [blockr](https://www.abhinav.co/blockr) - a CLI tool to help you easily block and unblock websites
 *   [microrequests](https://www.abhinav.co/microrequests) - a Python library to help you consume microservice efficiently
 
-✨⚡You can read more about me on my [blog](https://www.abhinav.co/about/) or follow me on Twitter - [@abhinav](https://twitter.com/abhinav)
+You can read more about me on my [blog](https://www.abhinav.co/about/) or follow me on Twitter - [@abhinav](https://twitter.com/abhinav)
 
-✨⚡If you like my work, you can [buy me a coffee](https://buymeacoffee.com/abhinavs)                
+If you like my work, you can [buy me a coffee](https://buymeacoffee.com/abhinavs)

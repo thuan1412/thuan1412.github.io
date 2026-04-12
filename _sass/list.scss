@@ -1,34 +1,43 @@
 ul.horizontal-list {
   display: flex;
-  //justify-content: space-between;
   margin-top: 0em;
-  margin-left: -40px;
+  padding-left: 0;
+  list-style: none;
   flex-wrap: wrap;
   font-family: "Inter", -apple-system, "avenir next", avenir, sans-serif;
+  gap: 0.8em;
 
   li {
-    display:inline;
-    margin-right: 1em;
+    display: inline;
   }
 
   li a {
     text-decoration: none;
-    font-weight: normal
+    font-weight: normal;
   }
 
+  li:not(.card) {
+    margin-right: 1em;
+  }
 }
 
 .card {
   padding: 1em;
   border: 1px var(--text) solid;
-  width: 11em;
+  width: calc(33.333% - 0.6em);
+  box-sizing: border-box;
   height: auto;
   text-align: center;
   font-size: 1em;
   align-items: center;
   background-color: var(--bg-secondary);
-  margin-bottom: 0.8em;
   border-radius: 0.5em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
 
   .header {
     color: var(--links);
@@ -41,7 +50,6 @@ ul.horizontal-list {
   hr {
     margin: 0.5em 0;
   }
-
 }
 
 /* Responsive cards - one column layout on small screens */
@@ -49,10 +57,12 @@ ul.horizontal-list {
   ul.horizontal-list li.card {
     width: 100%;
     display: block;
-    margin-bottom: 1em;
-    margin-left: 1em;
     a, .header {
       font-size: 1em;
     }
+  }
+  .card:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
