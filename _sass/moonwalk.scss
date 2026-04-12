@@ -132,27 +132,6 @@ a {
   }
 }
 
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  &:focus {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
-    padding: 0.5em 1em;
-    background: var(--bg);
-    color: var(--links);
-    z-index: 100;
-    font-weight: bold;
-  }
-}
-
 noscript .theme-toggle { display: none; }
 
 .theme-toggle {

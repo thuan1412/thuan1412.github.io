@@ -2,8 +2,7 @@
 <html lang="{{ page.lang | default: "en" }}" class="html" data-theme="{{ site.theme_config.appearance | default: "auto" }}">
         {%- include head.html -%}
   <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-    <main id="main-content" class="page-content" aria-label="Content">
+    <main class="page-content" aria-label="Content">
       <div class="w">
         {{ content }}
         {% if site.theme_config.appearance_toggle %}

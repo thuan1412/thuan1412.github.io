@@ -25,7 +25,7 @@
 {% if site.theme_config.show_tags == true %}
   <div class="">
     {% for tag in page.tags %}
-    <a href="{{ "/tags#" | append: tag | slugify | relative_url }}" class="tag">{{ tag }}</a>
+    <a href="{{ "/tags" | relative_url }}#{{ tag | slugify }}" class="tag">{{ tag }}</a>
     {% endfor %}
   </div>
 {% endif %}
