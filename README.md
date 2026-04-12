@@ -8,13 +8,17 @@
 </h3>
 
 ## Features
-* Light & dark mode with theme switcher
+* Light & dark mode with theme switcher (respects `prefers-reduced-motion`)
 * Vertical list, horizontal list, card list
 * Landing page with navbar, footer, portfolio
 * Fast (very minimal CSS) - 100/100 on performance, accessibility, best practices and SEO, please see [Lighthouse Report](https://raw.githubusercontent.com/abhinavs/moonwalk/master/_screenshots/lighthouse-report.png) for more details
 * Responsive and mobile friendly
-* SEO optimized (uses [Jekyll Soopr SEO Tag](https://github.com/jekyll/jekyll-soopr-seo-tag))
+* SEO optimized with auto-generated sitemap
 * RSS feed (uses [Jekyll Feed](https://github.com/jekyll/jekyll-feed))
+* [GitHub Markdown Alerts](#github-markdown-alerts) (NOTE, TIP, IMPORTANT, WARNING, CAUTION)
+* Tag archive page with clickable tags
+* Light and dark mode syntax highlighting
+* Accessible - skip-to-content link, ARIA labels, keyboard friendly
 * Easy to extend
 * Fully compatible with [GitHub Pages](https://pages.github.com/) (see [GitHub Pages installation](#github-pages-installation))
 * Auto-generated share images for social media (using [Soopr](https://www.soopr.co))
@@ -118,17 +122,40 @@ html {
 
 <img src="https://raw.githubusercontent.com/abhinavs/moonwalk/master/_screenshots/twitter_card.png" />
 
+### GitHub Markdown Alerts
+
+Moonwalk supports [GitHub-style Markdown Alerts](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts). Use them in your posts like this:
+
+```markdown
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+All five alert types are styled with color-coded left borders and icons, and work in both light and dark mode.
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/abhinavs/moonwalk.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
 
 ## Development
 
-To set up your environment to develop this theme, run `bundle install`.
+1. Run `bin/bootstrap` (or `make setup`) to install dependencies
+2. Run `bin/start` (or `make serve`) to start the dev server with live reload at `http://127.0.0.1:4000`
+3. Run `bin/build` (or `make build`) for a production build
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
+When your theme is released, only the files in `_layouts`, `_includes`, `_sass`, `_data`, and `assets` tracked with Git will be bundled.
 To add a custom directory to your theme-gem, please edit the regexp in `moonwalk.gemspec` accordingly.
 
 ## Acknowledgement

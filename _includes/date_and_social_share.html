@@ -18,14 +18,14 @@
 </p>
 
 <div class="soopr-btn"
-   data-twitter="SooprCo"
+   {% if site.twitter.username %}data-twitter="{{ site.twitter.username }}"{% endif %}
 >
 </div>
 
 {% if site.theme_config.show_tags == true %}
   <div class="">
     {% for tag in page.tags %}
-    <span class="tag">{{ tag }}</span>
+    <a href="{{ "/tags#" | append: tag | slugify | relative_url }}" class="tag">{{ tag }}</a>
     {% endfor %}
   </div>
 {% endif %}

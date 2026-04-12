@@ -1,0 +1,22 @@
+---
+layout: default
+title: Tags
+permalink: /tags
+---
+
+<a href="{{ "/" | relative_url }}">{{ site.theme_config.back_home_text }}</a>
+
+<h1>Tags</h1>
+
+{% assign tags = site.tags | sort %}
+{% for tag in tags %}
+  <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+  <ul>
+    {% for post in tag[1] %}
+      <li class="post-list-item">
+        <span class="home-date">{{ post.date | date: site.theme_config.date_format }}&raquo;</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

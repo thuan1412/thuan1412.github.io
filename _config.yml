@@ -48,4 +48,5 @@ sass:
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
   - jekyll-soopr-seo-tag

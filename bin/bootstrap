@@ -1,6 +1,16 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
+# Check Ruby is available
+if ! command -v ruby &> /dev/null; then
+  echo "Error: Ruby is not installed. Please install Ruby 3.x first."
+  exit 1
+fi
+
+RUBY_VERSION=$(ruby -e 'puts RUBY_VERSION')
+echo "==> Using Ruby $RUBY_VERSION"
+
 echo "==> Running \`bundle install\`"
 bundle install
+echo "==> Done! Run bin/start to launch the dev server."

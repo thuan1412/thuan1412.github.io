@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
 html { height: 100%; }
 
 body {
@@ -118,20 +115,45 @@ p, strong, b, em, small, li, hr, table, figcaption {
 }
 blockquote {
   background-color: var(--bg-secondary);
-  border: 1px var(--border) solid;
+  border: 1px var(--text) solid;
 }
 a {
   color: var(--links);
 }
 *:target { background-color: var(--bg-secondary); }
 
-html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
-    transition: all 250ms !important;
-    transition-delay: 0 !important;
+@media (prefers-reduced-motion: no-preference) {
+  html.transition,
+  html.transition *,
+  html.transition *:before,
+  html.transition *:after {
+      transition: all 250ms !important;
+      transition-delay: 0 !important;
+  }
 }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  &:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    padding: 0.5em 1em;
+    background: var(--bg);
+    color: var(--links);
+    z-index: 100;
+    font-weight: bold;
+  }
+}
+
+noscript .theme-toggle { display: none; }
 
 .theme-toggle {
   color: var(--text);
@@ -152,6 +174,14 @@ html.transition *:after {
 }
 .theme-toggle:focus {
   outline: none;
+}
+@media screen and (max-width: 600px) {
+  .theme-toggle {
+    position: static;
+    margin: 0;
+    display: block;
+    text-align: right;
+  }
 }
 .dashed {
   border-top: 1px var(--text) dashed;
@@ -269,5 +299,9 @@ p code, li code {
   font-size: 0.7em;
   font-weight: bold;
   text-transform: lowercase;
-  //border: 1px solid var(--text-secondary);
+  text-decoration: none;
+  display: inline-block;
+  &:hover {
+    color: var(--links);
+  }
 }
