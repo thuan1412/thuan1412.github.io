@@ -8,9 +8,13 @@
     var button = document.querySelector('.theme-toggle');
     if (!button) return;
 
-    // Set initial aria-pressed state
-    var initial = document.documentElement.getAttribute('data-theme');
-    button.setAttribute('aria-pressed', initial === 'dark' ? 'true' : 'false');
+    function updateIcon(theme) {
+      button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+      button.querySelector('.icon-sun').style.display = theme === 'dark' ? 'block' : 'none';
+      button.querySelector('.icon-moon').style.display = theme === 'dark' ? 'none' : 'block';
+    }
+
+    updateIcon(document.documentElement.getAttribute('data-theme'));
 
     button.addEventListener('click', function (e) {
       var currentTheme = document.documentElement.getAttribute('data-theme');
@@ -19,7 +23,7 @@
       transition();
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
-      button.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+      updateIcon(next);
     });
 
     function transition() {
