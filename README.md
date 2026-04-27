@@ -8,15 +8,26 @@
 </h3>
 
 ## Features
-* Light & dark mode with theme switcher
+* Light & dark mode with theme switcher (respects `prefers-reduced-motion`)
 * Vertical list, horizontal list, card list
 * Landing page with navbar, footer, portfolio
 * Fast (very minimal CSS) - 100/100 on performance, accessibility, best practices and SEO, please see [Lighthouse Report](https://raw.githubusercontent.com/abhinavs/moonwalk/master/_screenshots/lighthouse-report.png) for more details
 * Responsive and mobile friendly
-* SEO optimized (uses [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag))
+* SEO optimized with auto-generated sitemap
 * RSS feed (uses [Jekyll Feed](https://github.com/jekyll/jekyll-feed))
+* [GitHub Markdown Alerts](#github-markdown-alerts) (NOTE, TIP, IMPORTANT, WARNING, CAUTION)
+* Tag archive page with clickable tags
+* Light and dark mode syntax highlighting
+* Accessible - ARIA labels, keyboard friendly
+* Reading progress bar (opt-in)
+* Back-to-top button (opt-in)
+* Previous/next post navigation (opt-in)
+* Table of contents via `toc: true` front matter (opt-in)
+* Code block copy button (opt-in)
 * Easy to extend
 * Fully compatible with [GitHub Pages](https://pages.github.com/) (see [GitHub Pages installation](#github-pages-installation))
+* Auto-generated share images for social media (using [Soopr](https://www.soopr.co))
+* Share & like buttons (using [Soopr](https://www.soopr.co))
 
 
 #### Lighthouse
@@ -27,6 +38,9 @@
 1. [Fork this repository](https://github.com/abhinavs/moonwalk/fork).
 2. `cd moonwalk`
 3. `bin/bootstrap`
+4. [Optional] Sign up on Soopr, and add your `publish_token` in `_config.yml` file.
+
+If you are installing Moonwalk on Windows, please note that you might have to use Ruby 3.0.x instead of Ruby 3.1.x - you can see Windows specific installation instructions [here](https://github.com/abhinavs/moonwalk/blob/master/moonwalk_on_windows.md)
 
 ## Starting Server
 `bin/start` - development server will start at http://127.0.0.1:4000
@@ -47,7 +61,7 @@ For further customization (e.g. layout, CSS) see the [official Jekyll's document
 
 ### Customize the menu
 
-In order to add/edit/delete entries in the home page, you can copy the `home.yml` file inside `_data` folder. Through that file you can define the structure of the menu and add data for navbar, footer, portfolio or simply remove all of that and use simple blog layout. Take a look at the default configuration to get an idea of how it works and read on for a more comprehensive explaination.
+In order to add/edit/delete entries in the home page, you can copy the `home.yml` file inside `_data` folder. Through that file you can define the structure of the menu and add data for navbar, footer, portfolio or simply remove all of that and use simple blog layout. Take a look at the default configuration to get an idea of how it works and read on for a more comprehensive explanation.
 
 The `home.yml` file accepts the following fields:
 
@@ -85,39 +99,68 @@ The `home.yml` file accepts the following fields:
 ```css
 html {
     --bg: #fff;
-    --bg-secondary: #f8f9fa;
-    --headings: #000;
-    --text: #333;
-    --links: blue;
+    --bg-secondary: #f3f4f6;
+    --headings: #1e293b;
+    --text: #374151;
+    --text-secondary: #6b7280;
+    --links: #6366f1;
     --highlight: #ffecb2; // light yellow
+    --code-text: #9d174d;
 }
 ```
   - for dark mode customize these css variables
 ```css
 @mixin dark-appearance {
   html, body  {
-      --bg: #1f242A;
-      --bg-secondary: #323945;
-      --headings: #3D9970;
-      --text: #adb5bd;
+      --headings: #74c0fc;
       --links: #91a7ff;
-      --highlight: #ffd8a8;
-      --highlight: #ffd43b;
+      --highlight: #41c7c7;
+      --bg: #1f242a;
+      --bg-secondary: #323945;
+      --text: #adb5bd;
+      --text-secondary: #9ca3af;
+      --code-text: #91a7ff;
   };
 }
 ```
+3. Sign up for free on [Soopr](https://www.soopr.co) and add your `publish_token` in `_config.yml` file - with this, each page gets short URL, like button and auto generated share image for social media.
+
+<img src="https://raw.githubusercontent.com/abhinavs/moonwalk/master/_screenshots/twitter_card.png" />
+
+### GitHub Markdown Alerts
+
+Moonwalk supports [GitHub-style Markdown Alerts](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts). Use them in your posts like this:
+
+```markdown
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+All five alert types are styled with color-coded left borders and icons, and work in both light and dark mode.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/abhinavs/moonwalk.
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for development setup and guidelines.
 
 ## Development
 
-To set up your environment to develop this theme, run `bundle install`.
+1. Run `bin/bootstrap` (or `make setup`) to install dependencies
+2. Run `bin/start` (or `make serve`) to start the dev server with live reload at `http://127.0.0.1:4000`
+3. Run `bin/build` (or `make build`) for a production build
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
+When your theme is released, only the files in `_layouts`, `_includes`, `_sass`, `_data`, and `assets` tracked with Git will be bundled.
 To add a custom directory to your theme-gem, please edit the regexp in `moonwalk.gemspec` accordingly.
 
 ## Acknowledgement
@@ -138,6 +181,6 @@ If you like Moonwalk, do check out my other projects
 *   [blockr](https://www.abhinav.co/blockr) - a CLI tool to help you easily block and unblock websites
 *   [microrequests](https://www.abhinav.co/microrequests) - a Python library to help you consume microservice efficiently
 
-✨⚡You can read more about me on my [blog](https://www.abhinav.co/about/) or follow me on Twitter - [@abhinav](https://twitter.com/abhinav)
+You can read more about me on my [blog](https://www.abhinav.co/about/) or follow me on Twitter - [@abhinav](https://twitter.com/abhinav)
 
-✨⚡If you like my work, you can [buy me a coffee](https://buymeacoffee.com/abhinavs)                
+If you like my work, you can [buy me a coffee](https://buymeacoffee.com/abhinavs)
